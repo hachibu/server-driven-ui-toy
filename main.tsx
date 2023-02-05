@@ -26,8 +26,8 @@ function main() {
   const ClientComponent = CLIENT_COMPONENTS[serverComponent.type];
 
   return renderToString(
-    <ClientComponent {...serverComponent.props}></ClientComponent>
+    <ClientComponent {...serverComponent.props}></ClientComponent>,
   );
 }
 
-if (import.meta.main) console.log(main())
+if (import.meta.main) console.log(main());

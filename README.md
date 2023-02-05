@@ -2,9 +2,16 @@
 
 A repository to play with server-driven UI concepts.
 
+## Contents
+
+- [Development](#development)
+- [Appendix](#appendix)
+
 ## Development
 
-- deno task dev
+- Install the [Deno](https://deno.land/manual/getting_started/installation)
+  JavaScript runtime.
+- Run the command: `deno task dev`.
 
 ## Appendix
 
