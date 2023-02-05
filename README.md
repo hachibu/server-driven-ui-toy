@@ -1,6 +1,6 @@
-# Server-Driven UI Experiments
+# Server-Driven UI Toy
 
-A repository to explore and play with server-driven UI.
+A repository to play with server-driven UI concepts.
 
 ## Development
 
