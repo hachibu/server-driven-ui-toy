@@ -1,10 +1,10 @@
 # Server-Driven UI Experiments
 
-...
+A repository to explore and play with server-driven UI.
 
 ## Development
 
-        deno task dev
+- deno task dev
 
 ## Appendix
 

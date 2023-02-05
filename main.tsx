@@ -3,25 +3,33 @@ import * as ReactDOMServer from "npm:react-dom/server";
 
 interface ServerComponent {
   type: string
+  props: Record<string, string>
 }
 
-async function getServerComponent(): ServerComponent {
+function getServerComponent(): ServerComponent {
   return {
-    subject: "Server-Driven UI"
+    type: 'HelloComponent',
+    props: {
+      subject: "Server-Driven UI"
+    }
   }
 }
 
-function HelloComponent({ subject }: ServerComponent) {
+function HelloComponent({ subject }: ServerComponent['props']) {
   return <div>Hello {subject}</div>;
 }
 
-async function main() {
-  const res = await getServerComponent()
+function main() {
+  const serverComponent = getServerComponent()
 
-  const html = ReactDOMServer.renderToString(
-    <HelloComponent subject={res.subject}></HelloComponent>,
-  );
-  console.log(html);
+  let clientComponent;
+  switch (serverComponent.type) {
+    case 'HelloComponent':
+      clientComponent = <HelloComponent {...serverComponent.props}></HelloComponent>
+      break
+  }
+
+  console.log(ReactDOMServer.renderToString(clientComponent))
 }
 
-if (import.meta.main) await main();
+if (import.meta.main) main();
