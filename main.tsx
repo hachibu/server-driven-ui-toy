@@ -29,13 +29,21 @@ const CLIENT_COMPONENTS: Record<string, ReturnType<React.Component>> = {
   },
 };
 
-function main() {
-  const { type, props } = getServerComponent();
-  const ClientComponent = CLIENT_COMPONENTS[type];
-
-  return renderToString(
-    <ClientComponent {...props}></ClientComponent>,
-  );
+function getClientComponentByType(type: string) {
+  return CLIENT_COMPONENTS[type];
 }
 
-if (import.meta.main) console.log(main());
+//
+// Main
+//
+
+function main() {
+  const { type, props } = getServerComponent();
+  const ClientComponent = getClientComponentByType(type);
+
+  return renderToString(<ClientComponent {...props}></ClientComponent>);
+}
+
+if (import.meta.main) {
+  console.log(main());
+}
