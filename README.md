@@ -6,6 +6,11 @@ A repository to play with server-driven UI concepts.
 
 ### Why Do Companies Use Server-driven UI?
 
+1. Faster mobile app releases
+2. Application CMS
+
+#### Faster Mobile App Releases
+
 Mobile app releases typically take on the order of weeks with a long-tail of
 upgrades occurring over a period of months thus slowing down the rate of change
 with the UI. SDUI attempts to solve this problem by storing the UI on the
@@ -13,6 +18,11 @@ backend to decouple UI changes from mobile app releases.
 
 For companies like Airbnb[^1] and Shopify[^2], being able to iterate on the UI
 faster is the core value proposition of SDUI.
+
+#### Application CMS
+
+SDUI can also allow non-technical employees to update content. Thus unlocking
+faster content updates, and automating away mundane developer tasks.
 
 ### How Do We Design a Server-driven UI System?
 
