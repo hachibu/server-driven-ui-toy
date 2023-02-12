@@ -2,7 +2,7 @@ import * as React from "npm:react";
 import { renderToString } from "npm:react-dom/server";
 
 //
-// Shared Types
+// Server
 //
 
 type ComponentType = "HelloComponent";
@@ -12,10 +12,6 @@ interface HelloComponentProps {
   buttonText: string;
   buttonOnClickUrl: string;
 }
-
-//
-// Server
-//
 
 interface ServerComponent<T> {
   type: ComponentType;
@@ -30,7 +26,7 @@ function getServerComponent(): ServerComponent<HelloComponentProps> {
 // Client
 //
 
-const CLIENT_COMPONENTS: Record<string, ReturnType<React.Component>> = {
+const CLIENT_COMPONENTS = {
   HelloComponent({ title, buttonText, buttonOnClickUrl }: HelloComponentProps) {
     const handleButtonClick = () => window.location.assign(buttonOnClickUrl);
 
@@ -43,15 +39,19 @@ const CLIENT_COMPONENTS: Record<string, ReturnType<React.Component>> = {
   },
 };
 
-function main() {
-  const { type, props } = getServerComponent();
-  const ClientComponent = CLIENT_COMPONENTS[type];
+function getClientComponentByType(type: string) {
+  return CLIENT_COMPONENTS[type];
+}
+
+function render() {
+  const serverComponent = getServerComponent();
+  const ClientComponent = getClientComponentByType(serverComponent.type);
 
   return renderToString(
-    <ClientComponent {...props}></ClientComponent>,
+    <ClientComponent {...serverComponent.props}></ClientComponent>,
   );
 }
 
 if (import.meta.main) {
-  console.log(main());
+  console.log(render());
 }
