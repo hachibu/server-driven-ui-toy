@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --allow-env --allow-read --watch src/main.tsx"
+    "dev": "deno run --allow-env --allow-read --allow-net --watch src/index.tsx"
   },
   "compilerOptions": {
     "noImplicitAny": false

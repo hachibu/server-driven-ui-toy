@@ -2,7 +2,15 @@
 
 A repository to play with server-driven UI concepts.
 
-## Questions
+![](images/sdui-example-screenshot.png)
+
+## Development
+
+- Install the [Deno](https://deno.land/manual/getting_started/installation) JavaScript runtime.
+- In a terminal, git clone this repository and run the command `deno task dev`.
+- In a web browser, visit `http://localhost:8000`.
+
+## Research
 
 ### Why Do Companies Use Server-driven UI?
 
@@ -34,8 +42,6 @@ Airbnb and Shopify have very similar SDUI systems which consist of:
 3. a mechanism for developers to modify server components such as config files
    or a WYSIWYG editor.
 
-[Click here to view a basic SDUI example](https://github.com/hachibu/server-driven-ui-toy/tree/main/src).
-
 ### Further Design Questions
 
 - How narrow or wide is the scope of our SDUI system?
@@ -43,12 +49,6 @@ Airbnb and Shopify have very similar SDUI systems which consist of:
 - Do we want to support advanced client capabilities such as click events, and
   analytics?
 - How easy or hard is it for developers to modify server components?
-
-## Development
-
-- Install the [Deno](https://deno.land/manual/getting_started/installation)
-  JavaScript runtime.
-- Run the command: `deno task dev`.
 
 [^1]: [A Deep Dive into Airbnb’s Server-Driven UI System](https://medium.com/airbnb-engineering/a-deep-dive-into-airbnbs-server-driven-ui-system-842244c5f5)
 
