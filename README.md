@@ -29,16 +29,19 @@ faster content updates, and automating away mundane developer tasks.
 Airbnb and Shopify have very similar SDUI systems which consist of:
 
 1. a backend that provides the UI and data required to render that UI.
-2. a client framework that can render the backend response for each supported client.
-3. a mechanism for developers to modify server components such as config files or a WYSIWYG editor.
+2. a client framework that can render the backend response for each supported
+   client.
+3. a mechanism for developers to modify server components such as config files
+   or a WYSIWYG editor.
 
-[Click here to view a basic SDUI example](https://github.com/hachibu/server-driven-ui-toy/blob/main/main.tsx).
+[Click here to view a basic SDUI example](https://github.com/hachibu/server-driven-ui-toy/tree/main/src).
 
 ### Further Design Questions
 
 - How narrow or wide is the scope of our SDUI system?
 - Which clients do we want to support (e.g. web, iOS, Android)?
-- Do we want to support advanced client capabilities such as click events, and analytics?
+- Do we want to support advanced client capabilities such as click events, and
+  analytics?
 - How easy or hard is it for developers to modify server components?
 
 ## Development

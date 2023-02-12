@@ -23,14 +23,7 @@ interface ServerComponent<T> {
 }
 
 function getServerComponent(): ServerComponent<HelloComponentProps> {
-  return {
-    type: "HelloComponent",
-    props: {
-      title: "Hello, Server-Driven UI!",
-      buttonText: "Learn More",
-      buttonOnClickUrl: "https://github.com/hachibu/server-driven-ui-toy",
-    },
-  };
+  return JSON.parse(Deno.readTextFileSync("./src/db.json"));
 }
 
 //
