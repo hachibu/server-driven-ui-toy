@@ -38,20 +38,16 @@ const CLIENT_COMPONENTS = {
   },
 };
 
-function getClientComponent(type: string) {
-  return CLIENT_COMPONENTS[type];
-}
-
 async function renderServerComponent(): Promise<ReadableStream> {
-  const serverComponent = getServerComponent();
-  const ClientComponent = getClientComponent(serverComponent.type);
+  const { type, props } = getServerComponent();
+  const ClientComponent = CLIENT_COMPONENTS[type];
 
   return await renderToReadableStream(
-    <ClientComponent {...serverComponent.props}></ClientComponent>,
+    <ClientComponent {...props}></ClientComponent>,
   );
 }
 
-await serve(async (req) => {
+async function requestHandler(req: Request): Promise<Response> {
   const url = new URL(req.url);
 
   if (url.pathname === "/") {
@@ -62,4 +58,8 @@ await serve(async (req) => {
   }
 
   return new Response("Not Found", { status: 404 });
-});
+}
+
+if (import.meta.main) {
+  await serve(requestHandler);
+}
