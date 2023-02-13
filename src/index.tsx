@@ -27,7 +27,7 @@ db.query("INSERT INTO components (type, props) VALUES (?, ?)", [
 ]);
 
 //
-// Backend
+// Backend API
 //
 
 interface ServerComponent<T> {
