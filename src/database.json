@@ -1,8 +1,0 @@
-{
-  "type": "HelloComponent",
-  "props": {
-    "title": "Hello, Server-driven UI!",
-    "buttonText": "Learn More",
-    "buttonUrl": "https://github.com/hachibu/server-driven-ui-toy"
-  }
-}

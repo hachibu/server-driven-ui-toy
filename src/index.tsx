@@ -1,12 +1,37 @@
 import * as React from "npm:react";
 import { renderToReadableStream } from "npm:react-dom/server";
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
+import { DB } from "https://deno.land/x/sqlite/mod.ts";
+
+//
+// Database
+//
+
+const db = new DB("./src/index.db");
+
+db.execute("DROP TABLE IF EXISTS components");
+
+db.execute(`CREATE TABLE IF NOT EXISTS components (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  type TEXT,
+  props JSON
+)`);
+
+db.query("INSERT INTO components (type, props) VALUES (?, ?)", [
+  "HelloComponent",
+  JSON.stringify({
+    "title": "Hello, Server-driven UI!",
+    "buttonText": "Learn More",
+    "buttonUrl": "https://github.com/hachibu/server-driven-ui-toy",
+  }),
+]);
 
 //
 // Backend
 //
 
 interface ServerComponent<T> {
+  id: number;
   type: string;
   props: T;
 }
@@ -18,7 +43,13 @@ interface HelloComponentProps {
 }
 
 function getServerComponent(): ServerComponent<HelloComponentProps> {
-  return JSON.parse(Deno.readTextFileSync("./src/database.json"));
+  const [[id, type, props]] = db.query("SELECT * from components");
+
+  return {
+    id,
+    type,
+    props: JSON.parse(props),
+  };
 }
 
 //
