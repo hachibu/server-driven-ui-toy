@@ -6,17 +6,15 @@ import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 // Backend
 //
 
-type ComponentType = "HelloComponent";
+interface ServerComponent<T> {
+  type: string;
+  props: T;
+}
 
 interface HelloComponentProps {
   title: string;
   buttonText: string;
   buttonUrl: string;
-}
-
-interface ServerComponent<T> {
-  type: ComponentType;
-  props: T;
 }
 
 function getServerComponent(): ServerComponent<HelloComponentProps> {
