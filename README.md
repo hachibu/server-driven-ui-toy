@@ -6,7 +6,8 @@ A repository to play with server-driven UI concepts.
 
 ## Development
 
-- Install the [Deno](https://deno.land/manual/getting_started/installation) JavaScript runtime.
+- Install the [Deno](https://deno.land/manual/getting_started/installation)
+  JavaScript runtime.
 - In a terminal, git clone this repository and run the command `deno task dev`.
 - In a web browser, visit `http://localhost:8000`.
 

@@ -3,7 +3,7 @@ import { renderToReadableStream } from "npm:react-dom/server";
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 
 //
-// Backend API
+// Backend
 //
 
 type ComponentType = "HelloComponent";
@@ -20,11 +20,11 @@ interface ServerComponent<T> {
 }
 
 function getServerComponent(): ServerComponent<HelloComponentProps> {
-  return JSON.parse(Deno.readTextFileSync("./src/db.json"));
+  return JSON.parse(Deno.readTextFileSync("./src/database.json"));
 }
 
 //
-// Client
+// Server-side Rendered (SSR) Client
 //
 
 const CLIENT_COMPONENTS = {
@@ -63,5 +63,5 @@ await serve(async (req) => {
     );
   }
 
-  return new Response(null, { status: 404 });
+  return new Response("Not Found", { status: 404 });
 });
