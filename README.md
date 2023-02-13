@@ -1,6 +1,6 @@
 # Server-driven UI Toy
 
-A repository to play with server-driven UI concepts.
+A [single file](https://github.com/hachibu/server-driven-ui-toy/blob/main/src/index.tsx) Server-driven UI system using Deno and SQLite.
 
 ![](images/sdui-example-screenshot.png)
 
